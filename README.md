@@ -5,10 +5,11 @@
 
 ## 순서
 1. 데이터 확인
-2. 데이터 분석
+2. 데이터 분석(https://wikidocs.net/72820)
 
-to do : make requirements.txt 
-
+## reuirements
+* pip install -r requiremets.txt
+* [KoNLPy](https://konlpy.org/ko/latest/install/)
 
 ## Report
 ### 데이터 확인
