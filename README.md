@@ -31,3 +31,16 @@
     * extractive_sample_submission.csv - extractive_test.jsonl의 추론 결과예시  
     1. id : extractive_test.jsonl 데이터의 고유 번호
     2. summary : 모델이 추론한 3개의 추출 문장, 하나의 셀에 각 문장을 로 구분하여 제출
+
+### 데이터 재구성
+
+    * train.jsonl 데이터를 refined_done.json 으로 일부 수정
+    {
+        id:{
+            media : 기사 미디어,
+            extract : 사람이 추출한 요약문 3개,
+            extrack_index : 사람이 추출한 요약문 3개의 index,
+            article_original : 전체 기사 내용,
+        }
+    ...
+    }
