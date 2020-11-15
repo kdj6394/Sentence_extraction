@@ -38,13 +38,5 @@
 
 ### 데이터 재구성
 
-    * train.jsonl 데이터를 아래의 형식 refined_done.json 으로 일부 수정  
-        {
-            id:{
-                media : 기사 미디어,
-                extract : [사람이 추출한 요약문 3개],
-                extrack_index : [사람이 추출한 요약문 3개의 index],
-                article_original : [전체 기사 내용],
-            }
-        ...
-        }
+    * train.jsonl의 데이터를 DataFrame 아래의 형식 refined_done.csv 로 저장
+    pd.DataFrame([data_id,data_media,data_extract_index,data_extract,data_ori] ...)

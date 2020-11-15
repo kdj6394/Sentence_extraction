@@ -3,10 +3,18 @@ from os.path import join,basename,dirname
 import glob
 import json
 import sys
+from tqdm import tqdm
 import numpy as np
 import pandas as pd
+from tabulate import tabulate
 import re
 import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 from tensorflow.keras.preprocessing.text import Tokenizer 
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+
+def print_df(df):
+    print(tabulate(df,headers='keys',tablefmt='psql'))
+
+def read_pd_csv(csv_path):
+    return pd.read_csv(csv_path)

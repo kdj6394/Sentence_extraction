@@ -1,6 +1,6 @@
 # train data refine
 
-from lib import os,join,basename,json,sys
+from lib import *
 
 if __name__ == '__main__':
     # refine data
@@ -10,26 +10,20 @@ if __name__ == '__main__':
     with open(raw_data,'r',encoding='utf-8') as raw:
         datas = raw.readlines()
 
-    refined_done = dict()
+    train_data_frame = pd.DataFrame()
 
-    for data in datas:
-        refined = dict()
+    for data in tqdm(datas,ascii=True):
         data = json.loads(data)
         data_media,data_id = data['media'],data['id']
         data_ori,data_extract_index = data['article_original'],data['extractive']
         data_extract = list()
         for index in data_extract_index:
             data_extract.append(data_ori[index])
-        
-        refined[data_id] = dict()
-        refined[data_id]['media'] = data_media
-        refined[data_id]['extract'] = data_extract
-        refined[data_id]['extract_index'] = data_extract_index
-        refined[data_id]['article_orginal'] = data_ori
+            
+        # train_data_frame.loc[row_idx] = [data_id,data_media,data_extract_index,data_extract,data_ori]
+        train_data_frame = train_data_frame.append({'id_index' : data_id, 'media' : data_media,
+                                'extract_index' : data_extract_index, 'extract' : data_extract,
+                                'article_original' : data_ori},ignore_index=True)
     
-        refined_done.update(refined)
-        print(refined)
-    
-    save_path = join(root,'refined_done.json')
-    with open(save_path,'w',encoding='utf-8') as s_p:
-        json.dump(refined_done,s_p,indent=4,ensure_ascii=False)
+    save_path = join(root,'refined_done.csv')
+    train_data_frame.to_csv(save_path,sep=',',na_rep='NaN')
