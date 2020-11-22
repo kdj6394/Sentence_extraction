@@ -4,3 +4,4 @@ data/data/extractive_test.jsonl
 data/data/train.jsonl
 data/data/refined_done.json
 data/data/refined_done.csv
+data/data/article_original.txt

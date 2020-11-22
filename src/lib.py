@@ -7,11 +7,15 @@ from tqdm import tqdm
 import numpy as np
 import pandas as pd
 from tabulate import tabulate
-import re
-import matplotlib.pyplot as plt
-from nltk.corpus import stopwords
-from tensorflow.keras.preprocessing.text import Tokenizer 
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+from konlpy.tag import Kkma
+from konlpy.tag import Twitter
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.preprocessing import normalize
+import warnings
+warnings.filterwarnings(action='ignore')
+
+
 
 def print_df(df):
     print(tabulate(df,headers='keys',tablefmt='psql'))
