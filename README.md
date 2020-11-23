@@ -5,7 +5,7 @@
 
 ## 순서
 1. 데이터 확인
-2. 데이터 분석(https://wikidocs.net/72820)
+2. Textrank
 
 ## reuirements
 * pip install -r requiremets.txt
@@ -35,8 +35,7 @@
     1. id : extractive_test.jsonl 데이터의 고유 번호
     2. summary : 모델이 추론한 3개의 추출 문장, 하나의 셀에 각 문장을 로 구분하여 제출
 
-### 데이터
-* train.jsonl 데이터 중 원문(article_original) 만 사용하기위해 원문(article_original)의 값만 article_original.txt 로 재저장함.
+    * train.jsonl 데이터 중 원문(article_original) 만 사용하기위해 원문(article_original)의 값만 article_original.txt 로 재저장함.
 
 
 ### Textrank
