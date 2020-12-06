@@ -16,7 +16,6 @@ import warnings
 warnings.filterwarnings(action='ignore')
 
 
-
 def print_df(df):
     print(tabulate(df,headers='keys',tablefmt='psql'))
 
