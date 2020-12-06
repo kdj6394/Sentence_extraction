@@ -6,9 +6,7 @@ class SentenceTokenizer(object):
     def __init__(self):
         self.kkma = Kkma()
         self.twitter = Twitter()
-        self.stopwords = ['중인' ,'만큼', '마찬가지', '꼬집었', "연합뉴스", "데일리", "동아일보", "중앙일보", "조선일보", "기자"
-        ,"아", "휴", "아이구", "아이쿠", "아이고", "어", "나", "우리", "저희", "따라", "의해", "을", "를", "에", "의", "가",""
-        ,"[","]",","]
+        self.stopwords = ["따라", "의해", "을", "를", "에", "의", "가","","[","]",",","'"]
     
     def url2sentences(self, article_originals):
         article = Article(article_originals, language='ko')
@@ -123,9 +121,9 @@ if __name__ == '__main__':
         article_originals = article_data.readlines()
 
         for article in article_originals:
-            print(article)
+            article = article.replace('[','').replace(']','')
+            print('article : ',article)
             textrank = TextRank(article)
-            for row in textrank.summarize(3):
-                print(row)
-                print()
-            print('keywords : ',textrank.keywords())
+            for i,row in enumerate(textrank.summarize(3)):
+                print('summarize_{}'.format(str(i)),row,'\n')
+            print('keywords : ',textrank.keywords(),'\n')
