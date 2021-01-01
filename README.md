@@ -7,7 +7,7 @@
 1. 데이터 확인
 2. Textrank
 
-## reuirements
+## requirements
 * pip install -r requiremets.txt
 * [KoNLPy](https://konlpy.org/ko/latest/install/)
 
